@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="WolfCoin.exe" version="1.0.0.0" publicKeyToken="a38e9545c12871c5" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="WolfCoin.exe" version="1.1.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="WolfCoin" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -186,14 +186,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WolfCoin.exe" size="126400">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WolfCoin.exe" size="125440">
       <assemblyIdentity name="WolfCoin" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5cDZsBI2HVgzdxf8V+bPveZPorF8TKq1PBXMB+w2Nv8=</dsig:DigestValue>
+        <dsig:DigestValue>wXecFjO3dQ/x+lZgbvrd00Ioun7uHspJSEKgZ5eo6CM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -235,4 +235,4 @@
       <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
     </application>
   </compatibility>
-<publisherIdentity name="CN=MASONS-PC\Mason" issuerKeyHash="f809735e5381884328b124bb3bb53b1956235a91" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>6lfBRyKKzvcfov8JLCRqx2O9xzLed95dhvMFUn/RONM=</DigestValue></Reference></SignedInfo><SignatureValue>CHUkcgorRZvctZ1Dhlej9KBQzSed661oBYGRaR2HszDJke4Iuyp7bhCX/Ph/UFVQdbMPgtcIUEmR+cgo66lZE67do+XGTztUt6Sbkhnbzkuddeas9X6yEhZLfMFnNQqXBDnlX+Xk7B/kGvBaBVGEoalaI8Hu8G8g0Puw3nlzIu0=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>6amoJtWF83C1FImDDrH0Y1228CQ1uvfOSxTdLSxNoZjDIQXgM4c80C87v60w2takCbGm3oCqFDeCZog/7V1ujBZdfP6wZfzM4swaxDR3w3xb8IfPAKgHpxVeAypfsuVKiLtSk9znarRDNBPzZeIFP34kmFtxaBQ0aI/SqT7Jnbk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="d338d17f5205f3865dde77de32c7bd63c76a242c09ffa21ff7ce8a2247c157ea" Description="" Url=""><as:assemblyIdentity name="WolfCoin.exe" version="1.0.0.0" publicKeyToken="a38e9545c12871c5" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MASONS-PC\Mason</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>MmZdw4KX2sf5K4NXrw8h6j5kcAsjDIdRPsmH/gFrnSY=</DigestValue></Reference></SignedInfo><SignatureValue>C1M2SnGASTLZFdwCPG90AFJg/mm3yY+Q0BIrs19mvTTQpMHX6QRoOtg0Vy8E+K36J9Lj3SnES5H+QxO0sUb/jM/QQvhHg6nkPxl7MWVxog5GmU8KVS0h06Frkxlhg/OR/nVi1Y6BZbtx3feOh2iW2CvhPyc6hsbHcVCIXCz4WP8=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>6amoJtWF83C1FImDDrH0Y1228CQ1uvfOSxTdLSxNoZjDIQXgM4c80C87v60w2takCbGm3oCqFDeCZog/7V1ujBZdfP6wZfzM4swaxDR3w3xb8IfPAKgHpxVeAypfsuVKiLtSk9znarRDNBPzZeIFP34kmFtxaBQ0aI/SqT7Jnbk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB1TCCAT6gAwIBAgIQOCA2z6GqzqFDgpP9BZjr2TANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDHh4ATQBBAFMATwBOAFMALQBQAEMAXABNAGEAcwBvAG4wHhcNMjIwMjE3MDE1ODU5WhcNMjMwMjE3MDc1ODU5WjApMScwJQYDVQQDHh4ATQBBAFMATwBOAFMALQBQAEMAXABNAGEAcwBvAG4wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAOmpqCbVhfNwtRSJgw6x9GNdtvAkNbr3zksU3S0sTaGYwyEF4DOHPNAvO7+tMNrWpAmxpt6AqhQ3gmaIP+1dbowWXXz+sGX8zOLMGsQ0d8N8W/CHzwCoB6cVXgMqX7LlSoi7UpPc52q0QzQT82XiBT9+JJhbcWgUNGiP0qk+yZ25AgMBAAEwDQYJKoZIhvcNAQELBQADgYEAL+xKUzE6gbruhYugSEgOBJWwt3RiVj3jYj0XvOKz+6fQYPu7YipRpzUOpe0HbOl74pyBRze1wAE7CBa/lPPHMQaIdG9uvx/tCzo6TdMyiqEKpyltX0w9uDsN+dcRMsVngHJEWbnSTY8t44gs9Uge9H4swJNdsrnQd7QUEUaoNFU=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+</asmv1:assembly>
