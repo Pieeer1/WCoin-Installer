@@ -13,6 +13,7 @@
         Background="Transparent"
         AllowsTransparency="True"
         MouseDown="Window_MouseDown"
+        Title="WolfCoin"
         >
     <Window.DataContext>
         <viewModel:MainViewModel/>
@@ -39,6 +40,48 @@
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
                    Margin="20,0,0,0"/>
+
+            <Popup Name="SendPopUp" IsOpen="True"
+                   Height="400" Width="200" >
+                <Border Background="#404040"
+            CornerRadius="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="150"/>
+
+
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                    <TextBlock Name="SendPopupTextName" Background="#404040" Foreground="White" Padding="30" HorizontalAlignment="Center">
+                            Input Username of Reciever
+                    </TextBlock>
+                    <TextBox Name="SendPopUpInput" Height="40" Width="140" HorizontalAlignment="Center">
+
+                    </TextBox>
+                    <TextBlock Name="SendPopupTextAmount" 
+                               Background="#404040" 
+                               Foreground="White" 
+                               Padding="30" HorizontalAlignment="Center"
+                               Grid.Row="1">
+                        Input Amount
+                    </TextBlock>
+                        <TextBox Name="SendPopUpInputAmount" Height="40" Width="140" HorizontalAlignment="Center" Grid.Row="1">
+
+                    </TextBox>
+                        <Button Name ="btnSubmitSend"
+                        Style="{StaticResource LoginTheme}"
+                        Background="#303030" 
+                        Foreground="White"
+                        Margin="50,20,50,0"
+                        FontSize="14"
+                        Content="Send"
+                        Grid.Row="2" Click="BtnSubmitSend_Click_1"/>
+
+                    </Grid>
+                </Border>
+            </Popup>
+
 
             <StackPanel Grid.Row="1">
                 
@@ -69,18 +112,39 @@
                              Checked="RadioButton_Checked"
                             />
             </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <RadioButton Content="Send WolfCoin"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="False" Margin="0,12,0,13" Width="179" Checked="RadioButton_Checked_2"
+                         />
+            <RadioButton Content="Sell WolfCoin"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="False"
+                         Margin="0,12,0,13" Width="179"
+                         />
+            <RadioButton Content="Buy WolfCoin"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="False"
+                         Margin="0,12,0,13" Width="179"
+                         />
 
-            <TextBox Width="250" Height="40" VerticalAlignment="Center"
-                     HorizontalAlignment="Left"
-                     Margin="5"
-                     Grid.Column="1"
-                     Style="{StaticResource WolfCoinTextBox}"/>
 
 
+            </StackPanel>
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
                             Margin="10"
-                            Content="{Binding CurrentView}"/>
+                            Content="{Binding CurrentView}"
+                             />
         </Grid>
         
         

@@ -78,54 +78,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IronPython.dll" size="1815552">
-      <assemblyIdentity name="IronPython" version="2.7.12.0" publicKeyToken="7F709C5B713576E1" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LYEpuOzSNEGw0MSoox/zoixw1Sv+uLM9gfngABXLLKs=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IronPython.Modules.dll" size="800768">
-      <assemblyIdentity name="IronPython.Modules" version="2.7.12.0" publicKeyToken="7F709C5B713576E1" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>N4H1kqBxsBZPWoDlxkb4WRnuN9iZTMrvu4snxKpA5Dg=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IronPython.SQLite.dll" size="636928">
-      <assemblyIdentity name="IronPython.SQLite" version="2.7.12.0" publicKeyToken="7F709C5B713576E1" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bujlm8oz+/S7OCDUrNqVYD0/TquEzMNz3TK5PpzHYI8=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IronPython.Wpf.dll" size="7680">
-      <assemblyIdentity name="IronPython.Wpf" version="2.7.12.0" publicKeyToken="7F709C5B713576E1" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>SR4y2qhBtTZGOln0oqvNjcUtAThUdB1CflAdOI8PtSY=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="K4os.Compression.LZ4.dll" size="60416">
       <assemblyIdentity name="K4os.Compression.LZ4" version="1.2.6.0" publicKeyToken="2186FA9121EF231D" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -210,6 +162,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="701992">
+      <assemblyIdentity name="Newtonsoft.Json" version="13.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>tiSUnfiw46YVP9+3MKfG9JkLZZLuDZIuF4hDPSdmEPM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Buffers.dll" size="20856">
       <assemblyIdentity name="System.Buffers" version="4.0.3.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -270,14 +234,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WolfCoin.exe" size="126976">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WolfCoin.exe" size="135168">
       <assemblyIdentity name="WolfCoin" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PvzsiLD0994RtXimYy56qqT2hwjc1JjUt/r+szz+t1I=</dsig:DigestValue>
+        <dsig:DigestValue>0Gedq74l28xkSI7/DwdEUJnGqw2m9QC3J4lIQpSIsco=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -293,103 +257,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Python\Blockchain.py" size="2261">
+  <file name="WolfCoin.exe.config" size="1049">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>WCLAKpt9O/CS9VzOww1HixVvSUhMymCeqEj1QR43/9Q=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Python\Main.py" size="347">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6cplO6tPhfSRXgRFOXU+QYxITXjhVId7VLd0TXCwYpk=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Python\UI\Account.py" size="2138">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>hPv+itWPih63+vknGN7JKFzQbLLKni2eXRa2+6H6NQg=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Python\UI\Chain.py" size="3694">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Ksha1KKuCY00oTbx5LSHhRwoDOUKG0QsVdoXGnZxms8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Python\UI\Login.py" size="3659">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>f8U030OJ5lirnegcAZfRNRWGYoQGCl/mxuagZLJ+l/s=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Python\UI\Send.py" size="3165">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>p7y/vfUdY682SAr/KqHjEME+glm7zCkhxBW9aGTr5zs=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Python\UI\Settings.py" size="1624">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Z228U7ywEMTKbgEP6gNXHXfG+W32+pwuouVGJBAbT0o=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Python\UI\UserInfo.py" size="4512">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>2IwEOvrJs9KI91m5tAGX2yQUt7fJZ/AvEiOuxIuIwoE=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Python\UI\UserInterface.py" size="2465">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>M16zPUdZ6Z+cyUE5Cn+pLOhyOaf4mjLlkOG9PIEjEIs=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Python\WC_server.py" size="2938">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>RWLsKjDPbuKlaFpjiv0zpXxDT1Nb6BKheqo7sFSCT4g=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="WolfCoin.exe.config" size="565">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>iYF1uSY5C3c99s2M6xGxbTsfkweSJSeUEUdeXEc+NWA=</dsig:DigestValue>
+      <dsig:DigestValue>9/6198kYh7q97/UxyPjfOdqiBnkQzibkTVCjrEcGCcc=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

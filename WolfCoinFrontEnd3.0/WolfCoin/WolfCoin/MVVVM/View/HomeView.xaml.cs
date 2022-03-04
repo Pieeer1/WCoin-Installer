@@ -12,68 +12,172 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using IronPython.Hosting;
 using System.Diagnostics;
 using System.IO;
-
+using Microsoft.Scripting.Hosting;
+using System.Net.Http;
+using System.Net;
+using MySql.Data.MySqlClient;
+using WolfCoin;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 namespace WolfCoin.MVVVM.View
 {
-    /// <summary>
-    /// Interaction logic for HomeView.xaml
-    /// </summary>
+
+/// <summary>
+/// Interaction logic for HomeView.xaml
+/// </summary>
     public partial class HomeView : UserControl
     {
+        private string uid;
+        private string connString = "SERVER= 68.178.247.52;PORT= 3306;DATABASE=wolfcoinlogin_db;USERNAME = Pieeer1;PASSWORD = 456456";
+        MySqlConnection conn;
+        
         public HomeView()
         {
             InitializeComponent();
+
         }
 
         private void ViewWalletButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Test");
+            getUsername();
+            try
+            {
+                conn = new MySqlConnection();
+                conn.ConnectionString = connString;
+                conn.Open();
 
-            Option2_IronPython();
+                string query = "SELECT COUNT(*) FROM blockchain WHERE Owner=@username";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@username", uid);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                MessageBox.Show(Convert.ToString(dr.GetInt32(0)));
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error With Connection");
 
+            }
 
         }
-        static void Option2_IronPython()
+
+        private void MineButton_Click(object sender, RoutedEventArgs e)
         {
-            var engine = Python.CreateEngine();
 
-            var script = "..\\..\\Python\\Main.py";
-            var source = engine.CreateScriptSourceFromFile(script);
+            getUsername();
+            string result;
 
-            var argv = new List<string>();
-            argv.Add("");
+            Console.WriteLine("Making API Call...");
+                using (var client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate }))
+                {
+                    client.BaseAddress = new Uri("http://wolf-coin.us/test/");
+                    HttpResponseMessage response = client.GetAsync("mine").Result;
+                    response.EnsureSuccessStatusCode();
+                    result = response.Content.ReadAsStringAsync().Result;
+                }
 
-            engine.GetSysModule().SetVariable("argv", argv);
-
-
-            var eIO = engine.Runtime.IO;
-
-            var errors = new MemoryStream();
-            eIO.SetErrorOutput(errors, Encoding.Default);
-
-            var results = new MemoryStream();
-            eIO.SetOutput(results, Encoding.Default);
+            if (result != "{\"message}\": \"Block did not mine.\"}")
+            {
 
 
-            var scope = engine.CreateScope();
+                var getResult = JObject.Parse(result);
 
-            source.Execute(scope);
+                string index = getResult.Value<string>("index");
+                string timestamp = getResult.Value<string>("timestamp");
+                string nonce = getResult.Value<string>("nonce");
+                string previoushash = getResult.Value<string>("previous_hash");
+                try
+                {
+                    conn = new MySqlConnection();
+                    conn.ConnectionString = connString;
+                    conn.Open();
+
+                    string query = "INSERT INTO blockchain(blockIndex, blockTimeStamp, nonce, previoushash, Owner) VALUES(@index, @timestamp, @nonce, @previoushash, @Owner)";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.Parameters.AddWithValue("@Owner", uid);
+                    cmd.Parameters.AddWithValue("@index", index);
+                    cmd.Parameters.AddWithValue("@timestamp", timestamp);
+                    cmd.Parameters.AddWithValue("@nonce", nonce);
+                    cmd.Parameters.AddWithValue("@previoushash", previoushash);
+                    cmd.BeginExecuteNonQuery();
+
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error, Could not Connect");
+
+                }
+                updateWallet();
+            }
+        }
+
+        public void getUsername()
+        {
+            foreach (Window item in Application.Current.Windows)
+            {
+                if (item.Title != null && item.Title.Length > 5)
+                {
+                    uid = item.Title;
+                    break;
+
+                }
+            }
+        }
 
 
-            string str(byte[] x) => Encoding.Default.GetString(x);
+        public void updateWallet()
+        {
+            string updateString;
 
-            Console.WriteLine("Errors: ");
-            Console.WriteLine(str(errors.ToArray()));
-            Console.WriteLine();
-            Console.WriteLine("Results: ");
-            Console.WriteLine(str(results.ToArray()));
+            try
+            {
+                conn = new MySqlConnection();
+                conn.ConnectionString = connString;
+                conn.Open();
+
+                string query = "SELECT COUNT(*) FROM blockchain WHERE Owner=@username";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@username", uid);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                updateString = Convert.ToString(dr.GetInt32(0));
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error With Connection");
+                return;
+            }
+
+            try
+            {
+                conn = new MySqlConnection();
+                conn.ConnectionString = connString;
+                conn.Open();
+
+                string query = "UPDATE wallet SET balance = @updateString WHERE uid = @uid";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@updateString", updateString);
+                cmd.Parameters.AddWithValue("@uid", uid);
+                cmd.BeginExecuteNonQuery();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error, Could not Connect");
+
+            }
 
 
         }
 
 
     }
+
 }

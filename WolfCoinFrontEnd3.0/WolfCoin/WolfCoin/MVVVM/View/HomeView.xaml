@@ -12,10 +12,11 @@
                    FontSize="28"
                    HorizontalAlignment="Left"
                    Margin="0,0,0,20"/>
-        <StackPanel>
+        <StackPanel Orientation="Vertical">
             <Border Width="375"
                     Height="200"
-                    HorizontalAlignment="Center">
+                    HorizontalAlignment="Center"
+                    Margin="5,5,5,5">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="DarkGoldenrod" Offset="0.0"/>
@@ -46,10 +47,10 @@
                            />
                 </Grid>
             </Border>
-                        <Border Width="375"
+            <Border Width="375"
                     Height="200"
                     HorizontalAlignment="Center"
-                                Margin="0,25,0,0">
+                                Margin="5,5,5,5">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="DarkGoldenrod" Offset="0.0"/>
@@ -64,6 +65,7 @@
                 </Border.Clip>
 
                 <Grid>
+                    <Button Name ="MineButton"  Opacity="0" Click="MineButton_Click"/>
                     <StackPanel>
                         <TextBlock Text="Mine &#x0a;For WolfCoin"
                                    Margin="20,10,10,0"
@@ -77,10 +79,11 @@
                            />
                 </Grid>
             </Border>
-            
-            
-            
-            
+
+
+
+
         </StackPanel>
     </StackPanel>
+
 </UserControl>

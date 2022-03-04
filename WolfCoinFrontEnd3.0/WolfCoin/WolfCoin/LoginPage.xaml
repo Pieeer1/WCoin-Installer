@@ -12,6 +12,12 @@
         Background="Transparent"
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
+    <Window.CommandBindings>
+        <CommandBinding Command="local:LoginPage.Login" Executed="SubmitEnter"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="local:LoginPage.Login" Key="Enter"/>
+    </Window.InputBindings>
     <Border Background="#404040"
             CornerRadius="10">
         <Grid>
@@ -62,7 +68,8 @@
                         Foreground="White"
                         Margin="50,20,50,0"
                         FontSize="14"
-                        Content="Submit" Click="BtnSubmit_Click"/>
+                        Content="Submit" Click="BtnSubmit_Click"
+                        />
                 <Button Name ="btnCreateAccount"
                         Style="{StaticResource LoginTheme}"
                         Background="#303030" 
