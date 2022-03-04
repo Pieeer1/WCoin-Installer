@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
-
+using System.Threading;
 
 namespace WolfCoin
 {
@@ -179,24 +179,24 @@ namespace WolfCoin
                         }
                         );
                         for (int i = 0; i < nonces.Count; i++)
-                        { 
-                                conn.Close();
-                                conn.Open();
-                            
-                                try
-                                {
-                                    query = "UPDATE blockchain SET Owner = @recieverUID WHERE Owner = @senderUID AND nonce = @nonces";
-                                    cmd = new MySqlCommand(query, conn);
-                                    cmd.CommandType = System.Data.CommandType.Text;
-                                    cmd.Parameters.AddWithValue("@recieverUID", recieverUID);
-                                    cmd.Parameters.AddWithValue("@senderUID", username);
-                                    cmd.Parameters.AddWithValue("@nonces", nonces[i]);
-                                    cmd.BeginExecuteNonQuery();
-                                }
-                                catch (MySqlException ex)
-                                {
-                                    MessageBox.Show(ex.Message);
-                                }
+                        {
+                            conn.Close();
+                            conn.Open();
+
+                            try
+                            {
+                                query = "UPDATE blockchain SET Owner = @recieverUID WHERE Owner = @senderUID AND nonce = @nonces";
+                                cmd = new MySqlCommand(query, conn);
+                                cmd.CommandType = System.Data.CommandType.Text;
+                                cmd.Parameters.AddWithValue("@recieverUID", recieverUID);
+                                cmd.Parameters.AddWithValue("@senderUID", username);
+                                cmd.Parameters.AddWithValue("@nonces", nonces[i]);
+                                cmd.BeginExecuteNonQuery();
+                            }
+                            catch (MySqlException ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
                         }
 
 
@@ -220,7 +220,7 @@ namespace WolfCoin
 
 
 
-                SendPopUp.IsOpen = false;
+            SendPopUp.IsOpen = false;
         }
     }
     

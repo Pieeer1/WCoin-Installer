@@ -121,7 +121,7 @@ namespace WolfCoin.MVVVM.View
         {
             foreach (Window item in Application.Current.Windows)
             {
-                if (item.Title != null && item.Title.Length > 5)
+                if (item.Title != null && item.Title.Length >= 5)
                 {
                     uid = item.Title;
                     break;
