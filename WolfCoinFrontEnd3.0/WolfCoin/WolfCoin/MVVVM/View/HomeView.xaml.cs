@@ -42,6 +42,7 @@ namespace WolfCoin.MVVVM.View
         private void ViewWalletButton_Click(object sender, RoutedEventArgs e)
         {
             getUsername();
+            updateWallet();
             try
             {
                 conn = new MySqlConnection();
@@ -71,6 +72,7 @@ namespace WolfCoin.MVVVM.View
             string result;
 
             Console.WriteLine("Making API Call...");
+            MessageBox.Show("Mining.....");
                 using (var client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate }))
                 {
                     client.BaseAddress = new Uri("http://wolf-coin.us/test/");
