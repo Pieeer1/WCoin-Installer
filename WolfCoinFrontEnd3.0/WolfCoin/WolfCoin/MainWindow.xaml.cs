@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using System.Threading;
+using System.Configuration;
 
 namespace WolfCoin
 {
@@ -23,7 +24,7 @@ namespace WolfCoin
     public partial class MainWindow : Window
     {
         private string username;
-        private string connString = "SERVER= 68.178.247.52;PORT= 3306;DATABASE=wolfcoinlogin_db;USERNAME = Pieeer1;PASSWORD = 456456";
+        private string connString;
         MySqlConnection conn;
 
         public MainWindow(string uid)
@@ -32,6 +33,7 @@ namespace WolfCoin
             InitializeComponent();
             this.Title = username;
             SendPopUp.IsOpen = false;
+            connString = Convert.ToString(Properties.Settings.Default.Properties["ConnectionString"].DefaultValue);
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -61,7 +63,6 @@ namespace WolfCoin
         }
 
 
-
         //Sending Coins
         private void BtnSubmitSend_Click_1(object sender, RoutedEventArgs e)
         {
@@ -74,18 +75,19 @@ namespace WolfCoin
             conn.ConnectionString = connString;
             conn.Open();
 
+            string query1 = "SELECT nonce FROM blockchain WHERE Owner = @username";
+            MySqlCommand cmd1 = new MySqlCommand(query1, conn);
+            cmd1.CommandType = System.Data.CommandType.Text;
+            cmd1.Parameters.AddWithValue("@username", username);
+            MySqlDataReader dr1 = cmd1.ExecuteReader();
 
             for (int i = 0; i < recieverAmount; i++)
             {
 
-                string query = "SELECT nonce FROM blockchain WHERE Owner = @username";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@username", username);
-                MySqlDataReader dr = cmd.ExecuteReader();
-                dr.Read();
 
-                nonces.Add(dr.GetString(0));
+                dr1.Read();
+
+                nonces.Add(dr1.GetString(0));
                 MessageBox.Show("nonce " + Convert.ToString(nonces[i]));
             }
 
@@ -147,7 +149,7 @@ namespace WolfCoin
                             cmd.CommandType = System.Data.CommandType.Text;
                             cmd.Parameters.AddWithValue("@recieverUID", recieverUID);
                             cmd.Parameters.AddWithValue("@FinalRecieverBalance", Convert.ToString(FinalRecieverBalance));
-                            cmd.BeginExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
                         }
                         catch (MySqlException ex)
                         {
@@ -155,29 +157,23 @@ namespace WolfCoin
                         }
 
 
-                        Task.Delay(10000).ContinueWith(_ =>
+                       
+                        conn.Close();
+                        conn.Open();
+                        try
                         {
-                            conn.Close();
-                            conn.Open();
-                            try
-                            {
-                                query = "UPDATE wallet SET balance = @FinalSenderBalance WHERE uid = @senderUID";
-                                cmd = new MySqlCommand(query, conn);
-                                cmd.CommandType = System.Data.CommandType.Text;
-                                cmd.Parameters.AddWithValue("@senderUID", username);
-                                cmd.Parameters.AddWithValue("@FinalSenderBalance", Convert.ToString(FinalSenderBalance));
-                                cmd.BeginExecuteNonQuery();
-                            }
-                            catch (MySqlException ex)
-                            {
-                                MessageBox.Show(ex.Message);
-                            }
+                            query = "UPDATE wallet SET balance = @FinalSenderBalance WHERE uid = @senderUID";
+                            cmd = new MySqlCommand(query, conn);
+                            cmd.CommandType = System.Data.CommandType.Text;
+                            cmd.Parameters.AddWithValue("@senderUID", username);
+                            cmd.Parameters.AddWithValue("@FinalSenderBalance", Convert.ToString(FinalSenderBalance));
+                            cmd.ExecuteNonQuery();
                         }
-                        );
-                        Task.Delay(15000).ContinueWith(_ =>
+                        catch (MySqlException ex)
                         {
+                            MessageBox.Show(ex.Message);
                         }
-                        );
+
                         for (int i = 0; i < nonces.Count; i++)
                         {
                             conn.Close();
@@ -191,7 +187,7 @@ namespace WolfCoin
                                 cmd.Parameters.AddWithValue("@recieverUID", recieverUID);
                                 cmd.Parameters.AddWithValue("@senderUID", username);
                                 cmd.Parameters.AddWithValue("@nonces", nonces[i]);
-                                cmd.BeginExecuteNonQuery();
+                                cmd.ExecuteNonQuery();
                             }
                             catch (MySqlException ex)
                             {
@@ -214,7 +210,7 @@ namespace WolfCoin
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error Connecting to Server");
+                MessageBox.Show(ex.Message);
 
             }
 

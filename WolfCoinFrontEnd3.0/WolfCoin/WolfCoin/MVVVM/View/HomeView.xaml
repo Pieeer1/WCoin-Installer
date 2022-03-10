@@ -6,17 +6,37 @@
              xmlns:local="clr-namespace:WolfCoin.MVVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
-        <TextBlock Text="Discover WolfCoin"
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <TextBlock Text="Mine WolfCoin"
                    Foreground="White"
-                   FontSize="28"
+                   FontSize="35"
                    HorizontalAlignment="Left"
                    Margin="0,0,0,20"/>
-        <StackPanel Orientation="Vertical">
+            <Label Name="ViewWalletLabel"
+                   Content="Wallet Balance: "
+                   Foreground="Wheat"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   FontSize="30"
+                   Margin="0,25,0,0"></Label>
+            <Label Name="ViewMiningLabel"
+                   Content=""
+                   Foreground="Wheat"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   FontSize="15"
+                   Margin="0,175,0,0"></Label>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Grid.Column="1">
             <Border Width="375"
                     Height="200"
                     HorizontalAlignment="Center"
-                    Margin="5,5,5,5">
+                    Margin="5,50,5,5">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="DarkGoldenrod" Offset="0.0"/>
@@ -35,7 +55,7 @@
                             Name ="ViewWalletButton" 
                         Click="ViewWalletButton_Click" Opacity="0"/>
                     <StackPanel>
-                        <TextBlock Text="View &#x0a;Your Wallet"
+                        <TextBlock Text="Update &#x0a;Your Wallet"
                                    Margin="20,10,10,0"
                                    Foreground="White"
                                    FontSize="28"/>
@@ -84,6 +104,5 @@
 
 
         </StackPanel>
-    </StackPanel>
-
+    </Grid>
 </UserControl>

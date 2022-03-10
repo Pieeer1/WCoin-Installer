@@ -30,13 +30,13 @@ namespace WolfCoin.MVVVM.View
     public partial class HomeView : UserControl
     {
         private string uid;
-        private string connString = "SERVER= 68.178.247.52;PORT= 3306;DATABASE=wolfcoinlogin_db;USERNAME = Pieeer1;PASSWORD = 456456";
+        string connString;
         MySqlConnection conn;
         
         public HomeView()
         {
             InitializeComponent();
-
+            connString = Convert.ToString(Properties.Settings.Default.Properties["ConnectionString"].DefaultValue);
         }
 
         private void ViewWalletButton_Click(object sender, RoutedEventArgs e)
@@ -55,11 +55,10 @@ namespace WolfCoin.MVVVM.View
                 cmd.Parameters.AddWithValue("@username", uid);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 dr.Read();
-                MessageBox.Show(Convert.ToString(dr.GetInt32(0)));
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error With Connection");
+                MessageBox.Show(ex.Message);
 
             }
 
@@ -67,52 +66,57 @@ namespace WolfCoin.MVVVM.View
 
         private void MineButton_Click(object sender, RoutedEventArgs e)
         {
-
+            connString = Convert.ToString(Properties.Settings.Default.Properties["ConnectionString"].DefaultValue);
             getUsername();
             string result;
 
+
+
             Console.WriteLine("Making API Call...");
-            MessageBox.Show("Mining.....");
-                using (var client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate }))
-                {
-                    client.BaseAddress = new Uri("http://wolf-coin.us/test/");
-                    HttpResponseMessage response = client.GetAsync("mine").Result;
-                    response.EnsureSuccessStatusCode();
-                    result = response.Content.ReadAsStringAsync().Result;
-                }
+            using (var client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate }))
+            {
+                client.BaseAddress = new Uri("http://wolf-coin.us/test/");
+                HttpResponseMessage response = client.GetAsync("mine").Result;
+                response.EnsureSuccessStatusCode();
+                result = response.Content.ReadAsStringAsync().Result;
+            }
 
             if (result != "{\"message}\": \"Block did not mine.\"}")
             {
 
 
                 var getResult = JObject.Parse(result);
-
                 string index = getResult.Value<string>("index");
                 string timestamp = getResult.Value<string>("timestamp");
                 string nonce = getResult.Value<string>("nonce");
                 string previoushash = getResult.Value<string>("previous_hash");
+                ViewMiningLabel.Content = "Last Block Mined: " + "\nTimestamp: " + timestamp + "\nNonce: " + nonce + "\nPrevious Hash: " + previoushash;
                 try
                 {
                     conn = new MySqlConnection();
                     conn.ConnectionString = connString;
-                    conn.Open();
 
-                    string query = "INSERT INTO blockchain(blockIndex, blockTimeStamp, nonce, previoushash, Owner) VALUES(@index, @timestamp, @nonce, @previoushash, @Owner)";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.Parameters.AddWithValue("@Owner", uid);
-                    cmd.Parameters.AddWithValue("@index", index);
-                    cmd.Parameters.AddWithValue("@timestamp", timestamp);
-                    cmd.Parameters.AddWithValue("@nonce", nonce);
-                    cmd.Parameters.AddWithValue("@previoushash", previoushash);
-                    cmd.BeginExecuteNonQuery();
+                    using (conn)
+                    {
+                        conn.Open();
 
+                        string query = "INSERT INTO blockchain(blockIndex, blockTimeStamp, nonce, previoushash, Owner) VALUES(@index, @timestamp, @nonce, @previoushash, @Owner)";
+                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.Parameters.AddWithValue("@Owner", uid);
+                        cmd.Parameters.AddWithValue("@index", index);
+                        cmd.Parameters.AddWithValue("@timestamp", timestamp);
+                        cmd.Parameters.AddWithValue("@nonce", nonce);
+                        cmd.Parameters.AddWithValue("@previoushash", previoushash);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 catch (MySqlException ex)
                 {
-                    MessageBox.Show("Error, Could not Connect");
+                    MessageBox.Show(ex.Message);
 
                 }
+                conn.Close();
                 updateWallet();
             }
         }
@@ -121,7 +125,7 @@ namespace WolfCoin.MVVVM.View
         {
             foreach (Window item in Application.Current.Windows)
             {
-                if (item.Title != null && item.Title.Length >= 5)
+                if (item.Title != null && item.Title.Length > 5)
                 {
                     uid = item.Title;
                     break;
@@ -152,7 +156,7 @@ namespace WolfCoin.MVVVM.View
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error With Connection");
+                MessageBox.Show(ex.Message);
                 return;
             }
 
@@ -172,10 +176,10 @@ namespace WolfCoin.MVVVM.View
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error, Could not Connect");
+                MessageBox.Show(ex.Message);
 
             }
-
+            ViewWalletLabel.Content = "Wallet Balance: " + updateString;
 
         }
 

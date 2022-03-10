@@ -33,6 +33,7 @@ namespace WolfCoin
         public LoginPage()
         {
             InitializeComponent();
+            connString = Convert.ToString(Properties.Settings.Default.Properties["ConnectionString"].DefaultValue);
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -78,7 +79,7 @@ namespace WolfCoin
 
                 string passResult = PHPMd5Hash(password);
 
-                connString = "SERVER= 68.178.247.52;PORT= 3306;DATABASE=wolfcoinlogin_db;USERNAME = Pieeer1;PASSWORD = 456456";
+
 
 
 
