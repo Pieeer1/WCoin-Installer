@@ -63,3 +63,9 @@ C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\WolfCoin\bin\Debug\Microsoft
 C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\WolfCoin\bin\Debug\Microsoft.Scripting.Metadata.xml
 C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\WolfCoin\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\WolfCoin\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\WolfCoin\obj\Debug\MVVVM\View\SendView.g.cs
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\WolfCoin\obj\Debug\MVVVM\View\SendView.baml
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\WolfCoin\obj\Debug\MVVVM\View\BuyView.g.cs
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\WolfCoin\obj\Debug\MVVVM\View\SellView.g.cs
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\WolfCoin\obj\Debug\MVVVM\View\BuyView.baml
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\WolfCoin\obj\Debug\MVVVM\View\SellView.baml

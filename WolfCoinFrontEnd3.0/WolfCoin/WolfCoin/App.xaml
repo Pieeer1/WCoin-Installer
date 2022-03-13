@@ -19,7 +19,15 @@
             <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
                 <view:SettingsView/>
             </DataTemplate>
-
+            <DataTemplate DataType="{x:Type viewModel:SendViewModel}">
+                <view:SendView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:SellViewModel}">
+                <view:SellView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:BuyViewModel}">
+                <view:BuyView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

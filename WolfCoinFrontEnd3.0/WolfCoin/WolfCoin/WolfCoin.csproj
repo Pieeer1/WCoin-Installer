@@ -172,7 +172,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVVM\View\BuyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVVM\View\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVVM\View\SellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVVM\View\SendView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -194,11 +206,23 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVVM\ViewModel\BuyViewModel.cs" />
     <Compile Include="MVVVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVVVM\ViewModel\MainViewModel.cs" />
+    <Compile Include="MVVVM\ViewModel\SellViewModel.cs" />
+    <Compile Include="MVVVM\ViewModel\SendViewModel.cs" />
     <Compile Include="MVVVM\ViewModel\SettingsViewModel.cs" />
+    <Compile Include="MVVVM\View\BuyView.xaml.cs">
+      <DependentUpon>BuyView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVVM\View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVVM\View\SellView.xaml.cs">
+      <DependentUpon>SellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVVM\View\SendView.xaml.cs">
+      <DependentUpon>SendView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVVM\View\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>

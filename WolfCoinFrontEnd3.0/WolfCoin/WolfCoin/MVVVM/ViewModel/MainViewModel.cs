@@ -12,11 +12,14 @@ namespace WolfCoin.MVVVM.ViewModel
 
         public HomeViewModel HomeVM{ get; set; }
         public SettingsViewModel SettingsVM { get; set; }
+        public SendViewModel SendVM { get; set; }
+        public SellViewModel SellVM { get; set; }
+        public BuyViewModel BuyVM { get; set; }
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand SettingsViewCommand { get; set; }
-
-
-
+        public RelayCommand SendViewCommand { get; set; }
+        public RelayCommand SellViewCommand { get; set; }
+        public RelayCommand BuyViewCommand { get; set; }
 
         private object _currentView;
 
@@ -35,6 +38,10 @@ namespace WolfCoin.MVVVM.ViewModel
         {
             HomeVM = new HomeViewModel();
             SettingsVM = new SettingsViewModel();
+            SendVM = new SendViewModel();
+            SellVM = new SellViewModel();
+            BuyVM = new BuyViewModel();
+
             CurrentView = HomeVM;
 
             HomeViewCommand = new RelayCommand(o => {
@@ -43,7 +50,15 @@ namespace WolfCoin.MVVVM.ViewModel
             SettingsViewCommand = new RelayCommand(o => {
                 CurrentView = SettingsVM;
             });
-
+            SendViewCommand = new RelayCommand(o => {
+                CurrentView = SendVM;
+            });
+            SellViewCommand = new RelayCommand(o => {
+                CurrentView = SellVM;
+            });
+            BuyViewCommand = new RelayCommand(o => {
+                CurrentView = BuyVM;
+            });
         }
     }
 }
