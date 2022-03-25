@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WolfCoin.MVVVM.View"
+             xmlns:loadingspinnercontrol="clr-namespace:LoadingSpinnerControl;assembly=LoadingSpinnerControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -24,13 +25,14 @@
                    VerticalAlignment="Center"
                    FontSize="30"
                    Margin="0,25,0,0"></Label>
+            <loadingspinnercontrol:LoadingSpinner Name ="LoadingSymbol" Margin="10,75,10,10" IsLoading="False"/>
             <Label Name="ViewMiningLabel"
                    Content=""
                    Foreground="Wheat"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"
                    FontSize="15"
-                   Margin="0,175,0,0"></Label>
+                   Margin="0,0,0,0"></Label>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Grid.Column="1">
             <Border Width="375"

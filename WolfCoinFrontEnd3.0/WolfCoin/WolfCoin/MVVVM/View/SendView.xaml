@@ -20,7 +20,7 @@
 
                 <Label Content="Send WolfCoins"
                        Foreground="White"
-                       HorizontalAlignment="Left"
+                       HorizontalAlignment="Center"
                        VerticalAlignment="Top"
                        FontSize="30"
                        Margin="0,0,0,0"
@@ -53,15 +53,16 @@
                                Grid.Row="2">
                         Input Amount
                     </TextBlock>
-                    <TextBox Name="SendPopUpInputAmount" 
+                <TextBox Name="SendPopUpInputAmount" 
                              Height="40" 
                              Width="140" 
                              HorizontalAlignment="Center"
                              Grid.Row="2" 
                              Background="#303030" 
-                             Foreground="White">
-
-                    </TextBox>
+                             Foreground="White"
+                             PreviewTextInput="TypeNumericValidation"
+                             DataObject.Pasting="PasteNumericValidation" >
+                </TextBox>
                     <Button Name ="btnSubmitSend"
                         Style="{StaticResource LoginTheme}"
                         Background="#303030" 

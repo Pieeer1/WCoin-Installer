@@ -41,6 +41,7 @@ namespace WolfCoin.MVVVM.View
 
         private void ViewWalletButton_Click(object sender, RoutedEventArgs e)
         {
+            LoadingSymbol.IsLoading = true;
             getUsername();
             updateWallet();
             try
@@ -61,11 +62,13 @@ namespace WolfCoin.MVVVM.View
                 MessageBox.Show(ex.Message);
 
             }
-
+            LoadingSymbol.IsLoading = false;
         }
 
         private void MineButton_Click(object sender, RoutedEventArgs e)
         {
+            ViewMiningLabel.Content = "";
+            LoadingSymbol.IsLoading = true;
             connString = Convert.ToString(Properties.Settings.Default.Properties["ConnectionString"].DefaultValue);
             getUsername();
             string result;
@@ -119,6 +122,7 @@ namespace WolfCoin.MVVVM.View
                 conn.Close();
                 updateWallet();
             }
+            LoadingSymbol.IsLoading = false;
         }
 
         public void getUsername()

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
-
+using System.Text.RegularExpressions;
 namespace WolfCoin.MVVVM.View
 {
     /// <summary>
@@ -42,6 +42,24 @@ namespace WolfCoin.MVVVM.View
                 }
             }
         }
+        private void TypeNumericValidation(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
+        }
+        private void PasteNumericValidation(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(String)))
+            {
+                String input = (String)e.DataObject.GetData(typeof(String));
+                if (new Regex("[^0-9]+").IsMatch(input))
+                {
+                    e.CancelCommand();
+                }
+            }
+            else e.CancelCommand();
+        }
+
+
         private void BtnSubmitSendClick(object sender, RoutedEventArgs e)
         {
             getUsername();

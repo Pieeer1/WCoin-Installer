@@ -63,6 +63,7 @@ namespace WolfCoin
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            loadingSymbol.IsLoading = true;
             loadMain();
         }
 
@@ -108,21 +109,21 @@ namespace WolfCoin
                         }
                         else
                         {
-                            MessageBox.Show("Incorrect Login Credentials");
-
+                            ErrorLabel.Content = "Incorrect Login Credentials";
+                            loadingSymbol.IsLoading = false;
                         }
 
                     }
                     catch (MySqlException ex)
                     {
-                        MessageBox.Show("Error Connecting to Server");
-
+                        ErrorLabel.Content= "Username Not Found";
+                        loadingSymbol.IsLoading = false;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please Fill Out All Values");
-
+                    ErrorLabel.Content = "Please Fill Out All Values";
+                    loadingSymbol.IsLoading = false;
                 }
             }
 

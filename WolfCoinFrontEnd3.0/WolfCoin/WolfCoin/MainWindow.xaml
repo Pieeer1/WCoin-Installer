@@ -84,11 +84,6 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding SettingsViewCommand}"/>
-                <RadioButton Content="Profile"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
                 <RadioButton Content="Quit"
                              Height="50"
                              Foreground="White"

@@ -20,7 +20,7 @@
 
                 <Label Content="Sell WolfCoins"
                        Foreground="White"
-                       HorizontalAlignment="Left"
+                       HorizontalAlignment="Center"
                        VerticalAlignment="Top"
                        FontSize="30"
                        Margin="0,0,0,0"
@@ -34,13 +34,15 @@
                                Grid.Row="1">
                             Amount of WolfCoins to Sell
                 </TextBlock>
-                <TextBox Name="SendPopUpInput" 
+                <TextBox Name="AmountToSell" 
                              Height="40" 
                              Width="140" 
                              HorizontalAlignment="Center" 
                              Grid.Row="1" 
                              Background="#303030"
-                             Foreground="White">
+                             Foreground="White"
+                             PreviewTextInput="TypeNumericValidation"
+                             DataObject.Pasting="PasteNumericValidation">
 
                 </TextBox>
                 <TextBlock Name="SendPopupTextAmount" 
@@ -50,13 +52,15 @@
                                Grid.Row="2">
                         Price Per Coin
                 </TextBlock>
-                <TextBox Name="SendPopUpInputAmount" 
+                <TextBox Name="PricePerCoin" 
                              Height="40" 
                              Width="140" 
                              HorizontalAlignment="Center"
                              Grid.Row="2" 
                              Background="#303030" 
-                             Foreground="White">
+                             Foreground="White"
+                             PreviewTextInput="TypeNumericValidation"
+                             DataObject.Pasting="PasteNumericValidation">
 
                 </TextBox>
                 <Button Name ="btnSellSend"
@@ -68,7 +72,7 @@
                         Content="Send"
                         Grid.Row="3"
                         Width="100"
-                        Height="50"/>
+                        Height="50" Click="BtnSellSend_Click"/>
 
             </Grid>
         </Border>
