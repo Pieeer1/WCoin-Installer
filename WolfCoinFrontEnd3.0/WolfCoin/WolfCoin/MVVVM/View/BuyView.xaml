@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="WolfCoin.MVVVM.View.BuyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WolfCoin.MVVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <Border Background="#404040"
+            CornerRadius="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Buy WolfCoins"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       FontSize="30"
+                       Margin="0,0,0,0"
+                       Name="SendLabel"/>
+                <TextBlock Name="SendPopupTextName" 
+                               Background="#404040"
+                               Foreground="Wheat" 
+                               Padding="30" 
+                               HorizontalAlignment="Center"
+                               Grid.Row="1">
+                            Amount of WolfCoins to Buy
+                </TextBlock>
+                <TextBox Name="SendPopUpInput" 
+                             Height="40" 
+                             Width="140" 
+                             HorizontalAlignment="Center" 
+                             Grid.Row="1" 
+                             Background="#303030"
+                             Foreground="White"
+                             PreviewTextInput="TypeNumericValidation"
+                             DataObject.Pasting="PasteNumericValidation">
+
+                </TextBox>
+                <TextBlock Name="SendPopupTextAmount" 
+                               Background="#404040" 
+                               Foreground="Wheat" 
+                               Padding="30" HorizontalAlignment="Center"
+                               Grid.Row="2">
+                        Price Per Coin
+                </TextBlock>
+                <TextBox Name="SendPopUpInputAmount" 
+                             Height="40" 
+                             Width="140" 
+                             HorizontalAlignment="Center"
+                             Grid.Row="2" 
+                             Background="#303030" 
+                             Foreground="White"
+                             PreviewTextInput="TypeNumericValidation"
+                             DataObject.Pasting="PasteNumericValidation">
+
+                </TextBox>
+                <Button Name ="btnBuySend"
+                        Style="{StaticResource LoginTheme}"
+                        Background="#303030" 
+                        Foreground="White"
+                        Margin="50,10,50,0"
+                        FontSize="14"
+                        Content="Buy"
+                        Grid.Row="3"
+                        Width="100"
+                        Height="50" Click="BtnBuySend_Click"/>
+
+                <TextBlock Name="CardNumberText" 
+                            Background="#404040"
+                            Foreground="Wheat" 
+                            Padding="30" 
+                            HorizontalAlignment="Center"
+                            Grid.Row="1"
+                            Grid.Column="1">Card Number</TextBlock>
+                <TextBox Name="CardNumberValue" 
+                            Height="40" 
+                            Width="140" 
+                            HorizontalAlignment="Center"
+                            Grid.Row="1" 
+                            Background="#303030" 
+                            Foreground="White"
+                            Grid.Column="1"
+                             PreviewTextInput="TypeNumericValidation"
+                             DataObject.Pasting="PasteNumericValidation"></TextBox>
+                <TextBlock Name="CVCText" 
+                            Background="#404040"
+                            Foreground="Wheat" 
+                            Padding="30" 
+                            HorizontalAlignment="Center"
+                            Grid.Row="2"
+                            Grid.Column="1">CVC</TextBlock>
+                <TextBox Name="CVCValue" 
+                            Height="40" 
+                            Width="140" 
+                            HorizontalAlignment="Center"
+                            Grid.Row="2" 
+                            Background="#303030" 
+                            Foreground="White"
+                            Grid.Column="1"
+                            PreviewTextInput="TypeNumericValidation"
+                            DataObject.Pasting="PasteNumericValidation"></TextBox>
+                <TextBlock Name="ExpirationText" 
+                            Background="#404040"
+                            Foreground="Wheat" 
+                            Padding="30" 
+                            HorizontalAlignment="Center"
+                            Grid.Row="3"
+                            Grid.Column="1">Expiration</TextBlock>
+                <TextBox Name="ExpirationValueMonth" 
+                            Height="40" 
+                            Width="40" 
+                            HorizontalAlignment="Left"
+                            Grid.Row="3" 
+                            Background="#303030" 
+                            Foreground="White"
+                            Grid.Column="1"
+                            Margin="100,0,0,0"
+                            PreviewTextInput="TypeNumericValidation"
+                            DataObject.Pasting="PasteNumericValidation"></TextBox>
+                <TextBox Name="ExpirationValueYear" 
+                            Height="40" 
+                            Width="40" 
+                            HorizontalAlignment="Right"
+                            Grid.Row="3" 
+                            Background="#303030" 
+                            Foreground="White"
+                            Grid.Column="1"
+                            Margin="0,0,100,0"
+                            PreviewTextInput="TypeNumericValidation"
+                            DataObject.Pasting="PasteNumericValidation"></TextBox>
+            </Grid>
+        </Border>
+    </Grid>
+
+
+
+
+</UserControl>

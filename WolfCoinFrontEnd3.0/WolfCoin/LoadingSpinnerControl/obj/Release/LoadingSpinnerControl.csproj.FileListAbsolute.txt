@@ -1,0 +1,13 @@
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\bin\Release\LoadingSpinnerControl.dll
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\bin\Release\LoadingSpinnerControl.pdb
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.csprojAssemblyReference.cache
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.Properties.Resources.resources
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.csproj.GenerateResource.cache
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.csproj.CoreCompileInputs.cache
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.dll
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.pdb
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl_MarkupCompile.cache
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl_MarkupCompile.lref
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\Themes\Generic.baml
+C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.g.resources
