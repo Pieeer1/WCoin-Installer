@@ -428,14 +428,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WolfCoin.exe" size="566272">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WolfCoin.exe" size="567296">
       <assemblyIdentity name="WolfCoin" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>19guWkj33zcc+yzvuyuBK+CqBzZ6+9e2LJgSZ6A5RsE=</dsig:DigestValue>
+        <dsig:DigestValue>VRPRdPiCGa8tdpMPf5R+m7ceAJMq+6Tp754pj3ji+k0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

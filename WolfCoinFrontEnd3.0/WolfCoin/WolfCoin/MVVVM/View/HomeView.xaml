@@ -26,6 +26,23 @@
                    FontSize="30"
                    Margin="0,25,0,0"></Label>
             <loadingspinnercontrol:LoadingSpinner Name ="LoadingSymbol" Margin="10,75,10,10" IsLoading="False"/>
+            <Label Content="How Many Coins Would you Like to Mine? "
+                   Foreground="Wheat"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="15"
+                   >
+            </Label>
+            <TextBox Name ="AmountToMineTextBox"
+                Background="#303030" 
+                    Foreground="White"
+                    Margin="10,0,10,0"
+                    FontSize="25"
+                    Width="50"
+                    Height="35"
+                    TextAlignment="Center"
+                    PreviewTextInput="TypeNumericValidation"
+                    DataObject.Pasting="PasteNumericValidation"></TextBox>
             <Label Name="ViewMiningLabel"
                    Content=""
                    Foreground="Wheat"

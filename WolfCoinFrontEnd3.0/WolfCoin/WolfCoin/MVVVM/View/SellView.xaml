@@ -69,7 +69,7 @@
                         Foreground="White"
                         Margin="50,10,50,0"
                         FontSize="14"
-                        Content="Send"
+                        Content="Sell"
                         Grid.Row="3"
                         Width="100"
                         Height="50" Click="BtnSellSend_Click"/>

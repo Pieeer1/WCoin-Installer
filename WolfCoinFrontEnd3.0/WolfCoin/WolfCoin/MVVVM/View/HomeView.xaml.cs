@@ -21,6 +21,9 @@ using MySql.Data.MySqlClient;
 using WolfCoin;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
+using System.Threading;
+
 namespace WolfCoin.MVVVM.View
 {
 
@@ -67,62 +70,70 @@ namespace WolfCoin.MVVVM.View
 
         private void MineButton_Click(object sender, RoutedEventArgs e)
         {
-            ViewMiningLabel.Content = "";
-            LoadingSymbol.IsLoading = true;
-            connString = Convert.ToString(Properties.Settings.Default.Properties["ConnectionString"].DefaultValue);
-            getUsername();
-            string result;
 
-
-
-            Console.WriteLine("Making API Call...");
-            using (var client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate }))
+            if (AmountToMineTextBox.Text != null)
             {
-                client.BaseAddress = new Uri("http://wolf-coin.us/test/");
-                HttpResponseMessage response = client.GetAsync("mine").Result;
-                response.EnsureSuccessStatusCode();
-                result = response.Content.ReadAsStringAsync().Result;
-            }
-
-            if (result != "{\"message}\": \"Block did not mine.\"}")
-            {
-
-
-                var getResult = JObject.Parse(result);
-                string index = getResult.Value<string>("index");
-                string timestamp = getResult.Value<string>("timestamp");
-                string nonce = getResult.Value<string>("nonce");
-                string previoushash = getResult.Value<string>("previous_hash");
-                ViewMiningLabel.Content = "Last Block Mined: " + "\nTimestamp: " + timestamp + "\nNonce: " + nonce + "\nPrevious Hash: " + previoushash;
-                try
+                for(int i=0;i< Convert.ToInt32(AmountToMineTextBox.Text);i++)
                 {
-                    conn = new MySqlConnection();
-                    conn.ConnectionString = connString;
+                    ViewMiningLabel.Content = "";
+                    LoadingSymbol.IsLoading = true;
+                    connString = Convert.ToString(Properties.Settings.Default.Properties["ConnectionString"].DefaultValue);
+                    getUsername();
+                    string result;
 
-                    using (conn)
+
+
+                    Console.WriteLine("Making API Call...");
+                    using (var client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate }))
                     {
-                        conn.Open();
-
-                        string query = "INSERT INTO blockchain(blockIndex, blockTimeStamp, nonce, previoushash, Owner) VALUES(@index, @timestamp, @nonce, @previoushash, @Owner)";
-                        MySqlCommand cmd = new MySqlCommand(query, conn);
-                        cmd.CommandType = System.Data.CommandType.Text;
-                        cmd.Parameters.AddWithValue("@Owner", uid);
-                        cmd.Parameters.AddWithValue("@index", index);
-                        cmd.Parameters.AddWithValue("@timestamp", timestamp);
-                        cmd.Parameters.AddWithValue("@nonce", nonce);
-                        cmd.Parameters.AddWithValue("@previoushash", previoushash);
-                        cmd.ExecuteNonQuery();
+                        client.BaseAddress = new Uri("http://wolf-coin.us/test/");
+                        HttpResponseMessage response = client.GetAsync("mine").Result;
+                        response.EnsureSuccessStatusCode();
+                        result = response.Content.ReadAsStringAsync().Result;
                     }
-                }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show(ex.Message);
 
+                    if (result != "{\"message}\": \"Block did not mine.\"}")
+                    {
+
+
+                        var getResult = JObject.Parse(result);
+                        string index = getResult.Value<string>("index");
+                        string timestamp = getResult.Value<string>("timestamp");
+                        string nonce = getResult.Value<string>("nonce");
+                        string previoushash = getResult.Value<string>("previous_hash");
+                        ViewMiningLabel.Content = "Last Block Mined: " + "\nTimestamp: " + timestamp + "\nNonce: " + nonce + "\nPrevious Hash: " + previoushash;
+                        try
+                        {
+                            conn = new MySqlConnection();
+                            conn.ConnectionString = connString;
+
+                            using (conn)
+                            {
+                                conn.Open();
+
+                                string query = "INSERT INTO blockchain(blockIndex, blockTimeStamp, nonce, previoushash, Owner) VALUES(@index, @timestamp, @nonce, @previoushash, @Owner)";
+                                MySqlCommand cmd = new MySqlCommand(query, conn);
+                                cmd.CommandType = System.Data.CommandType.Text;
+                                cmd.Parameters.AddWithValue("@Owner", uid);
+                                cmd.Parameters.AddWithValue("@index", index);
+                                cmd.Parameters.AddWithValue("@timestamp", timestamp);
+                                cmd.Parameters.AddWithValue("@nonce", nonce);
+                                cmd.Parameters.AddWithValue("@previoushash", previoushash);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                        catch (MySqlException ex)
+                        {
+                            MessageBox.Show(ex.Message);
+
+                        }
+                        conn.Close();
+                        updateWallet();
+                    }
+                    LoadingSymbol.IsLoading = false;
+                    //Thread.Sleep(5000);
                 }
-                conn.Close();
-                updateWallet();
             }
-            LoadingSymbol.IsLoading = false;
         }
 
         public void getUsername()
@@ -186,6 +197,25 @@ namespace WolfCoin.MVVVM.View
             ViewWalletLabel.Content = "Wallet Balance: " + updateString;
 
         }
+
+        private void TypeNumericValidation(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]{1}").IsMatch(e.Text);
+        }
+        private void PasteNumericValidation(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(String)))
+            {
+                String input = (String)e.DataObject.GetData(typeof(String));
+                if (new Regex("[^0-9]{1}").IsMatch(input))
+                {
+                    e.CancelCommand();
+                }
+            }
+            else e.CancelCommand();
+        }
+
+
 
 
     }
