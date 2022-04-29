@@ -107,7 +107,11 @@ namespace WolfCoin
                         {
                             conn.Close();
 
-                            btnCreateAccount.Visibility = Visibility.Hidden;
+                        MainWindow dashboard = new MainWindow(username);
+                        dashboard.Show();
+                        this.Close();
+
+
                             btnCreateAccount.IsEnabled = false;
                             btnSubmit.Visibility = Visibility.Hidden;
                             btnSubmit.IsEnabled = false;
@@ -133,7 +137,7 @@ namespace WolfCoin
                                 string bodyString = @"<body><h3>Your Two Factor Authorization Code is: </h3><h1>" +  Convert.ToString(factorCode) + @"</h1><p>Do not Share This Code With Anyone</p></body>" ;
 
 
-                                Emailer.Emailer.SendEmail("Two Factor Login Code", bodyString, toList);
+                                //Emailer.Emailer.SendEmail("Two Factor Login Code", bodyString, toList);
 
                                 ErrorLabel.Content = "Check Email: " + toList[0] + ", enter 4 Digits ";
 

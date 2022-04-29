@@ -11,3 +11,16 @@ C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Re
 C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl_MarkupCompile.lref
 C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\Themes\Generic.baml
 C:\Users\Mason\Desktop\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.g.resources
+C:\Users\madams\Downloads\WCoin-Installer-main (4)\WCoin-Installer-main\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\bin\Release\LoadingSpinnerControl.dll
+C:\Users\madams\Downloads\WCoin-Installer-main (4)\WCoin-Installer-main\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\bin\Release\LoadingSpinnerControl.pdb
+C:\Users\madams\Downloads\WCoin-Installer-main (4)\WCoin-Installer-main\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.csproj.AssemblyReference.cache
+C:\Users\madams\Downloads\WCoin-Installer-main (4)\WCoin-Installer-main\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\madams\Downloads\WCoin-Installer-main (4)\WCoin-Installer-main\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl_MarkupCompile.cache
+C:\Users\madams\Downloads\WCoin-Installer-main (4)\WCoin-Installer-main\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl_MarkupCompile.lref
+C:\Users\madams\Downloads\WCoin-Installer-main (4)\WCoin-Installer-main\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\Themes\Generic.baml
+C:\Users\madams\Downloads\WCoin-Installer-main (4)\WCoin-Installer-main\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.g.resources
+C:\Users\madams\Downloads\WCoin-Installer-main (4)\WCoin-Installer-main\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.Properties.Resources.resources
+C:\Users\madams\Downloads\WCoin-Installer-main (4)\WCoin-Installer-main\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.csproj.GenerateResource.cache
+C:\Users\madams\Downloads\WCoin-Installer-main (4)\WCoin-Installer-main\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.csproj.CoreCompileInputs.cache
+C:\Users\madams\Downloads\WCoin-Installer-main (4)\WCoin-Installer-main\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.dll
+C:\Users\madams\Downloads\WCoin-Installer-main (4)\WCoin-Installer-main\WolfCoinFrontEnd3.0\WolfCoin\LoadingSpinnerControl\obj\Release\LoadingSpinnerControl.pdb
